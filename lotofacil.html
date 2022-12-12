@@ -1,0 +1,62 @@
+<meta charset = "UTF-8">
+
+<script>
+
+	function pulaLinha(){
+
+		document.write("<br>");
+
+	}
+
+
+	function mostra(mensagem){
+
+		document.write(mensagem);
+		pulaLinha();
+
+	}
+
+	function sorteia(){
+		
+		return Math.round(Math.random() * 25);
+
+	}
+
+	function listaSorteio(quantidade){
+
+		var palpites = [];
+		var numero = 1;
+
+		while(numero <= quantidade) {
+
+			var numeroAleatorio = sorteia();
+			var achou = false;
+
+			if(numeroAleatorio !== 0){
+
+				for(var posicao = 0; posicao < palpites.length; posicao++){
+
+					if(palpites[posicao] == numeroAleatorio){
+						achou = true;
+						break;
+					}
+				}
+
+				if (achou == false){
+					palpites.push(numeroAleatorio);
+					numero++;
+				}
+
+			}
+
+		}
+
+		return palpites;
+	}
+
+	var surpresinha = listaSorteio(15);
+
+	mostra(surpresinha);
+
+
+</script>
